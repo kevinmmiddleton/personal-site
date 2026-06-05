@@ -92,9 +92,13 @@ Never offer Inter, Geist, or default system sans-serifs.
 
 ## Step 6: Photo and scheduling link
 
-Ask the user to drop a photo of themselves. Tell them the same image will be reused for the social link-preview card later, so they only need to choose once. If they do not have a photo ready, leave the placeholder; the site renders cleanly with the empty state.
+First ask whether they want a photo on the site at all. Three valid answers:
 
-Ask for their scheduling link (Calendly, Google Calendar Appointments, Cal.com, etc.) if they want an office-hours block. If they do not want one, hide that section in the generated file.
+- **Yes, here it is.** Ask them to drop the file. Tell them the same image will be reused for the social link-preview card later, so they only choose once.
+- **Yes, but not yet.** Leave the placeholder for now. The site renders cleanly with the empty state until they drop in `photo.jpg`.
+- **No thanks, skip it.** In Step 7, remove the entire `.hero-photo` block from the hero and let the hero copy span the full width (see Step 7 index.html instructions).
+
+Then ask for their scheduling link (Calendly, Google Calendar Appointments, Cal.com, etc.) if they want an office-hours block. If they do not want one, hide that section in the generated file.
 
 ## Step 7: Generate the files
 
@@ -121,6 +125,7 @@ Confirm the structure with the user before filling content if you are making a n
 - Replace `REPLACE_WITH_LINKEDIN_URL`, `REPLACE_WITH_EMAIL`, and `REPLACE_WITH_SCHEDULING_LINK` with their actual links.
 - Update `<title>` and `<meta name="description">` with their name and one-line pitch.
 - If they opted out of office hours, remove the `<section class="oh">` block entirely and adjust the nav.
+- If they opted out of a photo entirely (Step 6, "no thanks"), remove the `<div class="hero-photo empty reveal" id="heroPhoto">...</div>` block from the hero, and update `.hero-grid` to a single-column layout so the copy spans full width. The mobile circle and its placeholder both go with it.
 
 ### design-system.md
 
