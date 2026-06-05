@@ -1,0 +1,36 @@
+name: Build and release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build .plugin file
+        run: |
+          PLUGIN_NAME=$(jq -r '.name' .claude-plugin/plugin.json)
+          echo "Building $PLUGIN_NAME.plugin"
+          zip -r "$PLUGIN_NAME.plugin" . \
+            -x "*.DS_Store" \
+            -x ".git/*" \
+            -x ".github/*" \
+            -x "*.plugin"
+          ls -la "$PLUGIN_NAME.plugin"
+          echo "PLUGIN_FILE=$PLUGIN_NAME.plugin" >> "$GITHUB_ENV"
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.PLUGIN_FILE }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true

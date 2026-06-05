@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Name] · [Your role and specialty]</title>
+<meta name="description" content="[One-sentence description of who you are and what you do. The skill fills this in from your resume and voice.]">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-bg:#FAFAEC;
+    --color-bg-sunk:#F1F0DA;
+    --color-surface:#FFFFFF;
+    --color-ink:#1F2110;
+    --color-ink-muted:#65684C;
+    --color-ink-faint:#999A7B;
+    --color-primary:#C0481B;
+    --color-primary-deep:#9E3C16;
+    --color-secondary:#4F6B4A;
+    --color-wasabi:#E9F056;
+    --color-plum:#351E28;
+    --color-line:#E6E6CE;
+    --color-line-strong:#D4D4B4;
+    --color-on-primary:#FCEFE2;
+
+    --display:'Bricolage Grotesque', 'Hanken Grotesk', sans-serif;
+    --body:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+
+    --maxw:1180px;
+    --measure:66ch;
+    --shadow-photo:0 18px 50px rgba(36,30,22,0.10);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    background:var(--color-bg);
+    color:var(--color-ink);
+    font-size:1.05rem;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- Shared editorial bits ---------- */
+  .kicker{
+    font-family:var(--mono);font-size:0.76rem;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;color:var(--zone, var(--color-primary-deep));
+  }
+  .rule{height:1px;background:var(--color-line);border:0;width:100%}
+
+  .sec-head{margin-bottom:48px}
+  .sec-head .kicker{display:block;margin-bottom:16px}
+  .sec-title{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.1;letter-spacing:-0.015em;
+    max-width:20ch;
+  }
+  .sec-intro{margin-top:18px;color:var(--color-ink-muted);max-width:var(--measure);font-size:1.08rem}
+  .sec-head-rule{margin-top:32px}
+
+  .section{padding:90px 0}
+  .section.sunk{background:var(--color-bg-sunk)}
+  .section.z-wasabi{background:#F5F6D8;--zone:#766611}
+  .section.z-sage{background:#ECEFE2;--zone:#3F5A3A}
+  .section.z-blue{background:#EAF1F6;--zone:#2C6580}
+  .section.z-peach{background:#FBEEE5;--zone:#9E3C16}
+  .section.z-mauve{background:#F1E9EC;--zone:#6E3A4E}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--body);font-weight:600;font-size:0.98rem;
+    padding:13px 22px;border-radius:6px;border:1px solid transparent;cursor:pointer;
+    transition:background .18s, border-color .18s, transform .18s, color .18s;
+  }
+  .btn .arr{transition:transform .18s}
+  .btn:hover .arr{transform:translateX(3px)}
+  .btn-primary{background:var(--color-primary);color:#fff}
+  .btn-primary:hover{background:var(--color-primary-deep)}
+  .btn-ghost{background:transparent;color:var(--color-ink);border-color:var(--color-line-strong)}
+  .btn-ghost:hover{border-color:var(--color-ink)}
+  .btn-invert{background:#fff;color:var(--color-primary-deep)}
+  .btn-invert:hover{background:var(--color-on-primary);transform:translateY(-1px)}
+
+  /* ---------- Nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(251,247,240,0.86);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--color-line)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:15px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand-text{display:flex;flex-direction:column;line-height:1.04}
+  .brand-name{font-family:var(--display);font-weight:600;font-size:1.16rem;letter-spacing:-0.01em;color:var(--color-ink)}
+  .brand-title{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-ink-muted);margin-top:4px}
+  .brand .mk{width:9px;height:9px;border-radius:2px;background:var(--color-primary);transform:rotate(45deg)}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a{font-size:0.95rem;font-weight:500;color:var(--color-ink-muted);position:relative;padding:3px 0;transition:color .18s}
+  .nav-links a:hover{color:var(--color-ink)}
+  .nav-links a.active{color:var(--color-ink)}
+  .nav-links a.active::after{content:"";position:absolute;left:0;width:18px;height:2px;bottom:-3px;background:var(--color-primary)}
+  .nav-links a[href="#approach"].active::after{background:#766611}
+  .nav-links a[href="#experience"].active::after{background:#3F5A3A}
+  .nav-links a[href="#projects"].active::after{background:#2C6580}
+  .nav-links a[href="#skills"].active::after{background:#9E3C16}
+  .nav-links a[href="#recs"].active::after{background:#6E3A4E}
+  .nav-links a.nav-cta{background:var(--color-primary);color:#fff;font-weight:600;padding:9px 18px;border-radius:6px}
+  .nav-links a.nav-cta:hover{background:var(--color-primary-deep);color:#fff}
+  .nav-links a.nav-cta.active{color:#fff}
+  .nav-links a.nav-cta.active::after{display:none}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:6px}
+  .nav-toggle span{display:block;width:24px;height:2px;background:var(--color-ink);margin:5px 0;border-radius:1px}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:72px 0 64px;border-bottom:1px solid var(--color-line)}
+  .hero-grid{display:grid;grid-template-columns:1.4fr 0.85fr;gap:54px;align-items:center}
+  .hero .kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px}
+  .hero .kicker .pulse{width:7px;height:7px;border-radius:50%;background:var(--color-secondary);position:relative}
+  .hero .kicker .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--color-secondary);opacity:.5;animation:ping 2.4s ease-out infinite}
+  @keyframes ping{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.9);opacity:0}}
+  h1.hero-title{font-family:var(--display);font-weight:500;font-size:clamp(2.4rem,4.6vw,3.4rem);line-height:1.06;letter-spacing:-0.022em;max-width:16ch}
+  h1.hero-title em{font-style:normal;white-space:nowrap;color:var(--color-ink);background:var(--color-wasabi);padding:0.02em 0.14em;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .hero-sub{margin-top:26px;color:var(--color-ink-muted);font-size:1.12rem;max-width:54ch}
+  .hero-actions{margin-top:32px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+  .text-link{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--color-primary-deep);border-bottom:1px solid transparent;padding-bottom:2px}
+  .text-link .arr{transition:transform .18s}
+  .text-link:hover{border-color:var(--color-primary-deep)}
+  .text-link:hover .arr{transform:translateX(3px)}
+  .open-note{margin-top:34px;padding-top:22px;border-top:1px solid var(--color-line);max-width:52ch;color:var(--color-ink-muted);font-size:0.98rem}
+  .open-note b{color:var(--color-ink);font-weight:600}
+  .open-note .lead{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-secondary);display:block;margin-bottom:8px}
+
+  .hero-photo{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/5;background:var(--color-surface);border:1px solid var(--color-line)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-photo.empty img{display:none}
+  .hero-photo:not(.empty){box-shadow:var(--shadow-photo)}
+  .hero-photo .photo-hint{display:none}
+  .hero-photo.empty{display:grid;place-items:center;background:#F1F2D6}
+  .hero-photo.empty::before{content:"";position:absolute;inset:13px;border:1px dashed var(--color-line-strong);border-radius:5px;pointer-events:none}
+  .hero-photo.empty .photo-hint{display:block;text-align:center;color:var(--color-ink-faint);font-family:var(--mono);font-size:0.78rem;line-height:1.9;padding:24px;letter-spacing:0.04em}
+  .hero-photo.empty .photo-hint b{color:var(--color-ink-muted);font-weight:500}
+
+  /* ---------- Approach (numbered editorial list) ---------- */
+  .numbered{border-top:1px solid var(--color-line)}
+  .numbered .row{display:grid;grid-template-columns:auto 1fr;gap:28px;padding:30px 0;border-bottom:1px solid var(--color-line);align-items:baseline}
+  .numbered .row .no{font-family:var(--mono);font-size:0.92rem;color:var(--zone, var(--color-primary));padding-top:6px}
+  .numbered .row h3{font-family:var(--display);font-weight:500;font-size:1.42rem;letter-spacing:-0.01em;margin-bottom:10px}
+  .numbered .row p{color:var(--color-ink-muted);max-width:60ch}
+
+  /* ---------- Applied AI band ---------- */
+  .ai{margin-top:44px;border:1px solid var(--color-line);border-radius:8px;background:var(--color-surface);padding:34px 36px;display:grid;grid-template-columns:0.9fr 1.3fr;gap:34px}
+  .ai .ai-head .kicker{display:block;margin-bottom:14px}
+  .ai .ai-head h3{font-family:var(--display);font-weight:500;font-size:1.5rem;line-height:1.18;letter-spacing:-0.01em}
+  .ai-points{list-style:none;display:grid;gap:14px}
+  .ai-points li{display:grid;grid-template-columns:auto 1fr;gap:14px;color:var(--color-ink-muted)}
+  .ai-points li .m{font-family:var(--mono);font-size:0.82rem;color:var(--zone, var(--color-primary));padding-top:2px}
+  .ai-points li b{color:var(--color-ink);font-weight:600}
+
+  /* ---------- Experience / Projects disclosure list ---------- */
+  .entries{border-top:1px solid var(--color-line)}
+  .entry{border-bottom:1px solid var(--color-line)}
+  .entry-trigger{width:100%;background:none;border:0;cursor:pointer;font-family:var(--body);text-align:left;
+    display:grid;grid-template-columns:150px 1fr auto;gap:24px;align-items:baseline;padding:26px 0}
+  .entry-trigger:hover .entry-role{color:var(--color-primary-deep)}
+  .entry-date{font-family:var(--mono);font-size:0.8rem;letter-spacing:0.04em;color:var(--color-ink-faint);text-transform:uppercase}
+  .entry-role{display:block;font-family:var(--display);font-weight:500;font-size:1.28rem;letter-spacing:-0.01em;transition:color .18s;line-height:1.3}
+  .entry-co{display:block;color:var(--color-ink-muted);font-size:0.98rem;margin-top:7px}
+  .entry-toggle{font-family:var(--mono);font-size:1.2rem;color:var(--color-ink-faint);line-height:1;align-self:center}
+  .entry.open .entry-toggle{color:var(--color-primary)}
+  .entry-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .entry-body-inner{padding:0 0 28px 174px}
+  .entry-body ul{list-style:none;display:grid;gap:11px;max-width:64ch}
+  .entry-body li{position:relative;padding-left:20px;color:var(--color-ink-muted)}
+  .entry-body li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:1px;background:var(--color-primary)}
+  .entry-body li b{color:var(--color-ink);font-weight:600}
+  .entry-tags{margin-top:16px;font-family:var(--mono);font-size:0.78rem;letter-spacing:0.04em;color:var(--color-ink-faint);text-transform:uppercase}
+
+  /* projects share .entry but show a figure number */
+  .entry-fig{font-family:var(--display);font-weight:500;font-size:1.7rem;color:var(--zone, var(--color-primary));line-height:1;white-space:nowrap}
+  .proj-trigger{grid-template-columns:150px 1fr auto}
+  .proj-dek{display:block;color:var(--color-ink-muted);font-size:0.98rem;margin-top:7px;max-width:52ch}
+
+  /* ---------- Skills (grouped lists) ---------- */
+  .skill-groups{display:grid;grid-template-columns:1fr 1fr;gap:36px 56px;border-top:1px solid var(--color-line);padding-top:36px}
+  .skill-group .glabel{font-family:var(--mono);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--zone, var(--color-primary-deep));margin-bottom:14px}
+  .skill-group p{font-size:1.05rem;line-height:1.8;color:var(--color-ink)}
+  .skill-group .lead-skill{color:var(--color-ink);font-weight:600}
+  .skill-group .sep{color:var(--color-line-strong);padding:0 2px}
+
+  /* ---------- Recommendations (pull quotes) ---------- */
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:34px 48px}
+  .quote{border-left:2px solid var(--zone, var(--color-primary));padding-left:24px}
+  .quote blockquote{font-family:var(--display);font-weight:400;font-style:normal;font-size:1.2rem;line-height:1.46;color:var(--color-ink);letter-spacing:-0.005em}
+  .quote .attr{margin-top:18px}
+  .quote .attr .name{font-weight:600;color:var(--color-ink)}
+  .quote .attr .rel{font-family:var(--mono);font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-ink-faint);margin-top:4px}
+
+  /* ---------- Personal ---------- */
+  .personal-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+  .philo{font-family:var(--display);font-style:normal;font-weight:500;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.18;color:var(--color-primary);letter-spacing:-0.015em}
+  .philo + p{margin-top:20px;color:var(--color-ink-muted);max-width:50ch}
+  .facts{display:grid;gap:22px;border-top:1px solid var(--color-line);padding-top:8px}
+  .fact{display:grid;grid-template-columns:100px 1fr;gap:18px;padding-top:18px;border-top:1px solid var(--color-line)}
+  .fact:first-child{border-top:0}
+  .fact .fl{font-family:var(--mono);font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--zone, var(--color-primary-deep));padding-top:3px}
+  .fact .ft b{display:block;font-family:var(--display);font-weight:500;font-size:1.14rem;margin-bottom:4px}
+  .fact .ft span{color:var(--color-ink-muted);font-size:0.97rem}
+
+  /* ---------- Office hours full-bleed band ---------- */
+  .oh{background:var(--color-primary);color:var(--color-on-primary)}
+  .oh .wrap{padding-top:84px;padding-bottom:84px}
+  .oh .kicker{color:var(--color-on-primary);opacity:0.8;display:block;margin-bottom:18px}
+  .oh h2{font-family:var(--display);font-weight:500;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.08;letter-spacing:-0.015em;color:#fff;max-width:18ch}
+  .oh p{margin-top:18px;font-size:1.1rem;max-width:56ch;color:#fff}
+  .oh .who{margin-top:24px;font-family:var(--mono);font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-on-primary);opacity:0.85}
+  .oh .oh-actions{margin-top:34px}
+  .oh-grid{display:grid;grid-template-columns:1.25fr 0.8fr;gap:48px;align-items:center}
+  .oh-copy{grid-column:1;grid-row:1}
+  .oh-art{grid-column:2;grid-row:1;display:flex;justify-content:center}
+  .oh-art svg{width:100%;max-width:300px;height:auto;display:block}
+
+  /* ---------- Connect / footer ---------- */
+  .connect{padding:88px 0}
+  .connect h2{font-family:var(--display);font-weight:500;font-size:clamp(1.8rem,3.6vw,2.5rem);letter-spacing:-0.015em}
+  .connect p{margin-top:16px;color:var(--color-ink-muted);max-width:54ch;font-size:1.08rem}
+  .connect-links{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
+  footer.foot{background:var(--color-plum);padding:36px 0}
+  .foot-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:0.76rem;letter-spacing:0.04em;text-transform:uppercase;color:rgba(252,239,226,0.6)}
+  .foot-inner .fb{color:var(--color-on-primary);font-family:var(--display);font-size:1rem;text-transform:none;letter-spacing:0}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  /* Tablet & below: single column. Photo leads the hero (above the copy),
+     centered and modest, a deliberate mobile treatment, not the desktop
+     side-by-side shrunk down. */
+  @media (max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:34px}
+    .hero-photo{order:-1;justify-self:center;width:100%;max-width:260px;aspect-ratio:1/1;border-radius:50%}
+    .hero-photo.empty::before{inset:11px;border-radius:50%}
+    .hero-photo.empty .photo-hint{padding:30px;font-size:0.72rem;line-height:1.8}
+    .ai{grid-template-columns:1fr;gap:24px;padding:30px 28px}
+    .skill-groups{grid-template-columns:1fr;gap:30px}
+    .quotes{grid-template-columns:1fr;gap:30px}
+    .personal-grid{grid-template-columns:1fr;gap:34px}
+    .oh-grid{display:block}
+    .oh-grid::after{content:"";display:block;clear:both}
+    .oh-art{float:right;display:block;width:92px;margin:2px 0 6px 18px}
+    .oh-art svg{max-width:92px}
+  }
+
+  /* Collapse nav to a menu before the links crowd the bar */
+  @media (max-width:900px){
+    .nav-toggle{display:block}
+    .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:2px;background:var(--color-bg);border-bottom:1px solid var(--color-line);padding:12px 24px 18px;transform:translateY(-10px);opacity:0;pointer-events:none;transition:.2s}
+    .nav-links.show{transform:none;opacity:1;pointer-events:auto}
+    .nav-links a{padding:12px 0;width:100%;border-bottom:1px solid var(--color-line)}
+    .nav-links a.active::after{display:none}
+    .nav-links a.nav-cta{margin-top:12px;border-bottom:0;text-align:center}
+  }
+
+  /* Phone */
+  @media (max-width:640px){
+    .section{padding:56px 0}
+    .hero{padding:34px 0 40px}
+    h1.hero-title{font-size:2.15rem;line-height:1.08}
+    .hero-sub{font-size:1.04rem;margin-top:22px}
+    .hero-photo{max-width:220px}
+    .sec-head{margin-bottom:32px}
+    .sec-head-rule{margin-top:26px}
+    .numbered .row{gap:18px;padding:24px 0}
+    .ai{padding:24px 20px}
+    .oh .wrap{padding-top:56px;padding-bottom:56px}
+    .connect{padding:58px 0}
+    .entry-trigger{grid-template-columns:1fr auto;gap:6px 14px;padding:22px 0}
+    .entry-date{grid-column:1 / -1;margin-bottom:2px}
+    .entry-body-inner{padding-left:0}
+    .proj-trigger{grid-template-columns:1fr auto}
+    .entry-fig{grid-column:1 / -1;margin-bottom:2px}
+    .connect-links{flex-direction:column;align-items:flex-start}
+    .foot-inner{flex-direction:column;align-items:flex-start;gap:10px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="mk"></span><span class="brand-text"><span class="brand-name">[Your&nbsp;Name]</span><span class="brand-title">[Your role and specialty]</span></span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#approach">How I Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#recs">Recommendations</a>
+      <a href="#office-hours" class="nav-cta">Office Hours</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 class="hero-title reveal">[Your hook line opening,] <em>[your hook line punch.]</em></h1>
+        <p class="hero-sub reveal">[Two or three sentences in first person about who you are and what you do. Pulled from the resume + voice check.]</p>
+        <div class="hero-actions reveal">
+          <a href="#office-hours" class="btn btn-primary">Book office hours <span class="arr">&rarr;</span></a>
+          <a href="#approach" class="text-link">See how I work <span class="arr">&rarr;</span></a>
+        </div>
+        <div class="open-note reveal">
+          <span class="lead">Currently</span>
+          <b>[Your current situation in one short phrase.]</b> [One sentence about what you are open to.]
+        </div>
+      </div>
+      <div class="hero-photo empty reveal" id="heroPhoto">
+        <img src="photo.jpg" alt="[Your Name]"
+             onload="document.getElementById('heroPhoto').classList.remove('empty')"
+             onerror="this.remove()">
+        <div class="photo-hint">Your photo goes here<br>save it in this folder as<br><b>photo.jpg</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPROACH ===== -->
+<section class="section z-wasabi" id="approach">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">How I Work</span>
+      <h2 class="sec-title">[Two-line statement of your approach or through-line.]</h2>
+      <p class="sec-intro">[One sentence elaborating on the title.]</p>
+    </div>
+
+    <div class="numbered reveal">
+      <div class="row"><div class="no">01</div><div><h3>[First pillar]</h3><p>[One or two sentences with specifics from the resume. Name tools or methods.]</p></div></div>
+      <div class="row"><div class="no">02</div><div><h3>[Second pillar]</h3><p>[One or two sentences.]</p></div></div>
+      <div class="row"><div class="no">03</div><div><h3>[Third pillar]</h3><p>[One or two sentences.]</p></div></div>
+    </div>
+
+    <div class="ai reveal">
+      <div class="ai-head">
+        <span class="kicker">[Specialized capability label] &middot; [cadence]</span>
+        <h3>[Headline about a signature thing you do well.]</h3>
+      </div>
+      <ul class="ai-points">
+        <li><span class="m">01</span><span>[Specific achievement with a real number or tool.]</span></li>
+        <li><span class="m">02</span><span>[Specific achievement.]</span></li>
+        <li><span class="m">03</span><span>[Specific achievement.]</span></li>
+        <li><span class="m">04</span><span>[Specific achievement.]</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section class="section z-sage" id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Experience</span>
+      <h2 class="sec-title">[N] years of [your through-line].</h2>
+      <p class="sec-intro">[One sentence framing the arc.] Click any role to go deeper.</p>
+    </div>
+
+    <div class="entries reveal">
+      <div class="entry">
+        <button class="entry-trigger">
+          <span class="entry-date">[YEAR] &ndash; [YEAR]</span>
+          <span><span class="entry-role">[Role title]</span><span class="entry-co">[Company] &middot; [Optional tagline]</span></span>
+          <span class="entry-toggle">+</span>
+        </button>
+        <div class="entry-body"><div class="entry-body-inner">
+          <ul>
+            <li><b>[Theme]:</b> [Specific accomplishment with numbers from the resume.]</li>
+            <li><b>[Theme]:</b> [Specific accomplishment.]</li>
+            <li><b>[Theme]:</b> [Specific accomplishment.]</li>
+          </ul>
+          <div class="entry-tags">[Tool] &middot; [Tool] &middot; [Skill]</div>
+        </div></div>
+      </div>
+
+      <div class="entry">
+        <button class="entry-trigger">
+          <span class="entry-date">[YEAR] &ndash; [YEAR]</span>
+          <span><span class="entry-role">[Role title]</span><span class="entry-co">[Company]</span></span>
+          <span class="entry-toggle">+</span>
+        </button>
+        <div class="entry-body"><div class="entry-body-inner">
+          <ul><li>[Specific accomplishment.]</li><li>[Specific accomplishment.]</li></ul>
+          <div class="entry-tags">[Tool] &middot; [Skill]</div>
+        </div></div>
+      </div>
+
+      <div class="entry">
+        <button class="entry-trigger">
+          <span class="entry-date">[YEAR] &ndash; [YEAR]</span>
+          <span><span class="entry-role">[Earlier roles synthesis]</span><span class="entry-co">[Company or "Various"]</span></span>
+          <span class="entry-toggle">+</span>
+        </button>
+        <div class="entry-body"><div class="entry-body-inner">
+          <p>[Short paragraph synthesizing earlier career.]</p>
+        </div></div>
+      </div>
+
+      <div class="entry">
+        <button class="entry-trigger">
+          <span class="entry-date">[YEAR] &ndash; [YEAR]</span>
+          <span><span class="entry-role">Education</span><span class="entry-co">[School] &middot; [Optional second school]</span></span>
+          <span class="entry-toggle">+</span>
+        </button>
+        <div class="entry-body"><div class="entry-body-inner">
+          <ul><li><b>[Degree, field]</b>, [School]. [Optional honors or specialization.]</li></ul>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section class="section z-blue" id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Building</span>
+      <h2 class="sec-title">[Two-line statement about things you have shipped or led.]</h2>
+    </div>
+
+    <div class="entries reveal">
+      <div class="entry"><button class="entry-trigger proj-trigger">
+        <span class="entry-fig">[Stat]</span>
+        <span><span class="entry-role">[Project name]</span><span class="proj-dek">[One-line description of what you did and the outcome.]</span></span>
+        <span class="entry-toggle">+</span></button>
+        <div class="entry-body"><div class="entry-body-inner">
+          <ul><li>[Two or three sentences with the story behind the number.]</li></ul>
+          <div class="entry-tags">[Company or context]</div>
+        </div></div>
+      </div>
+
+      <div class="entry"><button class="entry-trigger proj-trigger">
+        <span class="entry-fig">[Stat]</span>
+        <span><span class="entry-role">[Project name]</span><span class="proj-dek">[One-line description.]</span></span>
+        <span class="entry-toggle">+</span></button>
+        <div class="entry-body"><div class="entry-body-inner">
+          <ul><li>[Story.]</li></ul>
+          <div class="entry-tags">[Context]</div>
+        </div></div>
+      </div>
+
+      <div class="entry"><button class="entry-trigger proj-trigger">
+        <span class="entry-fig">[Stat]</span>
+        <span><span class="entry-role">[Project name]</span><span class="proj-dek">[One-line description.]</span></span>
+        <span class="entry-toggle">+</span></button>
+        <div class="entry-body"><div class="entry-body-inner">
+          <ul><li>[Story.]</li></ul>
+          <div class="entry-tags">[Context]</div>
+        </div></div>
+      </div>
+
+      <div class="entry"><button class="entry-trigger proj-trigger">
+        <span class="entry-fig">[Stat]</span>
+        <span><span class="entry-role">[Project name]</span><span class="proj-dek">[One-line description.]</span></span>
+        <span class="entry-toggle">+</span></button>
+        <div class="entry-body"><div class="entry-body-inner">
+          <ul><li>[Story.]</li></ul>
+          <div class="entry-tags">[Context]</div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section class="section z-peach" id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">Skills</span><h2 class="sec-title">What is in the kit.</h2></div>
+    <div class="skill-groups reveal">
+      <div class="skill-group"><div class="glabel">[Group 1]</div>
+        <p><span class="lead-skill">[Top skill]</span><span class="sep">&middot;</span><span class="lead-skill">[Top skill]</span><span class="sep">&middot;</span>[Skill]<span class="sep">&middot;</span>[Skill]<span class="sep">&middot;</span>[Skill]</p></div>
+      <div class="skill-group"><div class="glabel">[Group 2]</div>
+        <p><span class="lead-skill">[Top skill]</span><span class="sep">&middot;</span>[Skill]<span class="sep">&middot;</span>[Skill]<span class="sep">&middot;</span>[Skill]</p></div>
+      <div class="skill-group"><div class="glabel">[Group 3]</div>
+        <p><span class="lead-skill">[Top skill]</span><span class="sep">&middot;</span>[Skill]<span class="sep">&middot;</span>[Skill]<span class="sep">&middot;</span>[Skill]</p></div>
+      <div class="skill-group"><div class="glabel">[Group 4]</div>
+        <p><span class="lead-skill">[Top skill]</span><span class="sep">&middot;</span>[Skill]<span class="sep">&middot;</span>[Skill]<span class="sep">&middot;</span>[Skill]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RECOMMENDATIONS ===== -->
+<section class="section z-mauve" id="recs">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">In Their Words</span><h2 class="sec-title">What it is like to work with me.</h2></div>
+    <div class="quotes reveal">
+      <div class="quote"><blockquote>[Quote from a real reference. Kept short and specific.]</blockquote>
+        <div class="attr"><div class="name">[Their Name]</div><div class="rel">[Their relationship to you]</div></div></div>
+      <div class="quote"><blockquote>[Quote.]</blockquote>
+        <div class="attr"><div class="name">[Their Name]</div><div class="rel">[Relationship]</div></div></div>
+      <div class="quote"><blockquote>[Quote.]</blockquote>
+        <div class="attr"><div class="name">[Their Name]</div><div class="rel">[Relationship]</div></div></div>
+      <div class="quote"><blockquote>[Quote.]</blockquote>
+        <div class="attr"><div class="name">[Their Name]</div><div class="rel">[Relationship]</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PERSONAL ===== -->
+<section class="section z-wasabi" id="personal">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">Off the Clock</span><h2 class="sec-title">The stuff that does not fit on a resume.</h2></div>
+    <div class="personal-grid reveal">
+      <div>
+        <p class="philo">&ldquo;[Your personal line or credo.]&rdquo;</p>
+        <p>[Two or three sentences elaborating. Personal, warm, honest.]</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><div class="fl">[Label]</div><div class="ft"><b>[Fact title]</b><span>[Short elaboration.]</span></div></div>
+        <div class="fact"><div class="fl">[Label]</div><div class="ft"><b>[Fact title]</b><span>[Short elaboration.]</span></div></div>
+        <div class="fact"><div class="fl">[Label]</div><div class="ft"><b>[Fact title]</b><span>[Short elaboration.]</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFICE HOURS (full-bleed band) ===== -->
+<section class="oh" id="office-hours">
+  <div class="wrap oh-grid">
+    <div class="oh-art" aria-hidden="true">
+      <svg viewBox="0 0 220 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <circle cx="110" cy="106" r="92" stroke-width="2" opacity="0.22"/>
+          <path d="M93 80 C84 70 84 62 93 52 C102 42 102 34 93 24" stroke-width="2.5" opacity="0.65"/>
+          <path d="M110 82 C101 72 101 64 110 54 C119 44 119 36 110 26" stroke-width="2.5" opacity="0.85"/>
+          <path d="M127 80 C118 70 118 62 127 52 C136 42 136 34 127 24" stroke-width="2.5" opacity="0.65"/>
+          <path d="M72 94 C72 87 148 87 148 94 C148 101 72 101 72 94 Z"/>
+          <path d="M73 95 L80 156 C81 165 88 171 97 171 L123 171 C132 171 139 165 140 156 L147 95"/>
+          <path d="M148 109 C172 109 176 140 151 145"/>
+          <path d="M58 184 C58 177 162 177 162 184 C162 191 58 191 58 184 Z" opacity="0.9"/>
+          <path d="M171 60 L173.5 66 L180 68.5 L173.5 71 L171 77 L168.5 71 L162 68.5 L168.5 66 Z" stroke-width="2" opacity="0.8"/>
+          <path d="M50 150 L52 155 L57 157 L52 159 L50 164 L48 159 L43 157 L48 155 Z" stroke-width="2" opacity="0.65"/>
+        </g>
+      </svg>
+    </div>
+    <div class="oh-copy">
+      <span class="kicker">Office Hours</span>
+      <h2>[Inviting headline for office hours.]</h2>
+      <p>[One or two paragraphs framing the offer: what can they bring, what is it, why are you doing this.]</p>
+      <p class="who">[Who is welcome] &middot; [Who is welcome] &middot; [Who is welcome] &middot; [Who is welcome]</p>
+      <div class="oh-actions">
+        <a href="REPLACE_WITH_SCHEDULING_LINK" target="_blank" rel="noopener" class="btn btn-invert">Grab a time <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONNECT ===== -->
+<section class="connect" id="connect">
+  <div class="wrap">
+    <h2 class="reveal">Let&rsquo;s talk.</h2>
+    <p class="reveal">[One or two sentences about what you are open to: roles, projects, collaborations, conversations.]</p>
+    <div class="connect-links reveal">
+      <a href="REPLACE_WITH_LINKEDIN_URL" target="_blank" rel="noopener" class="btn btn-primary">Connect on LinkedIn <span class="arr">&rarr;</span></a>
+      <a href="REPLACE_WITH_SCHEDULING_LINK" target="_blank" rel="noopener" class="btn btn-ghost">Book office hours</a>
+      <a href="mailto:REPLACE_WITH_EMAIL" class="btn btn-ghost">Email me</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <span class="fb">[Your Name]</span>
+    <span>[Your role and specialty] &middot; [Your location]</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Mobile nav */
+  var toggle = document.getElementById('navToggle');
+  var links  = document.getElementById('navLinks');
+  if(toggle){
+    toggle.addEventListener('click', function(){ links.classList.toggle('show'); });
+    links.addEventListener('click', function(e){ if(e.target.tagName === 'A') links.classList.remove('show'); });
+  }
+
+  /* Reveal on scroll */
+  var revObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); revObs.unobserve(en.target); } });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(r){ revObs.observe(r); });
+
+  /* Hero photo parallax + fade (mobile circle only) */
+  var heroPhoto = document.getElementById('heroPhoto');
+  var mqMobile = window.matchMedia('(max-width:920px)');
+  var mqReduce = window.matchMedia('(prefers-reduced-motion:reduce)');
+  var phTicking = false;
+  function heroParallax(){
+    phTicking = false;
+    if(!heroPhoto) return;
+    if(!mqMobile.matches || mqReduce.matches){ heroPhoto.style.transform=''; heroPhoto.style.opacity=''; return; }
+    var sy = window.scrollY || window.pageYOffset || 0;
+    var p = Math.min(Math.max(sy / 360, 0), 1);
+    heroPhoto.style.transform = 'translateY(' + (sy * 0.32).toFixed(1) + 'px) scale(' + (1 - p * 0.06).toFixed(3) + ')';
+    heroPhoto.style.opacity = (1 - p).toFixed(3);
+  }
+  function onHeroScroll(){ if(!phTicking){ phTicking = true; requestAnimationFrame(heroParallax); } }
+  if(heroPhoto){
+    heroPhoto.style.willChange = 'transform, opacity';
+    window.addEventListener('scroll', onHeroScroll, {passive:true});
+    window.addEventListener('resize', heroParallax);
+    heroParallax();
+  }
+
+  /* Disclosure rows (experience + projects) */
+  document.querySelectorAll('.entry-trigger').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var entry = btn.closest('.entry');
+      var body  = entry.querySelector('.entry-body');
+      var toggle = entry.querySelector('.entry-toggle');
+      var open = entry.classList.toggle('open');
+      body.style.maxHeight = open ? (body.scrollHeight + 'px') : '0px';
+      if(toggle) toggle.textContent = open ? '–' : '+';
+    });
+  });
+
+  /* Scrollspy */
+  var navMap = {};
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    var href = a.getAttribute('href') || '';
+    if(href.indexOf('#') === 0) navMap[href.slice(1)] = a;
+  });
+  var spyObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var id = en.target.id;
+        Object.keys(navMap).forEach(function(k){ navMap[k].classList.toggle('active', k === id); });
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  ['approach','experience','projects','skills','recs','office-hours'].forEach(function(id){
+    var s = document.getElementById(id); if(s) spyObs.observe(s);
+  });
+})();
+</script>
+</body>
+</html>
