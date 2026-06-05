@@ -1,6 +1,6 @@
 {
   "name": "personal-site",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Build a distinctive personal website through a guided interview with Claude. Ships an editorial backbone, ten 2026 color palettes, and a launch walkthrough that ends with the site live on GitHub Pages.",
   "author": {
     "name": "Kevin Middleton"
