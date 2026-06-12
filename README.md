@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="banner.svg" alt="Personal Site — Build a distinctive personal website through a guided interview with Claude" width="100%"/>
+</p>
+
 # personal-site
 
 Build a distinctive personal website through a guided interview with Claude. No HTML required. Walks you through resume intake, picking a palette from ten 2026 color directions, choosing a headline font, generating the files, QA'ing the content against your real story, and getting the whole thing live on GitHub Pages for free.
