@@ -39,7 +39,20 @@ Most AI-built sites have a tell. The same Inter font, the same pill buttons, the
 - A bundled backbone instead of generating from scratch. The structural layout, type system, color-zoned chapters, and mobile patterns ship with the plugin and don't drift.
 - A bundled design system with an explicit "do not use" list that Claude reads first every session.
 - Hard reliance on the user's specifics. The interview, resume read, and voice check force user-true content into the copy.
-- A post-generation slop check that greps the output for known tells and fixes anything caught.
+- A post-generation design check against [Impeccable](https://impeccable.style), the open anti-pattern standard by Paul Bakaus: Claude runs its detector on the generated page, screenshots it at desktop and phone width, and fixes what it finds before handing off. It runs again whenever sections are added later.
+
+## What's new
+
+**0.4.0 (September 2026): design refresh.** A real site built with 0.3.0 still came out with some AI tells, and a few of them came from the template itself. This release brings the backbone up to the [Impeccable](https://impeccable.style) standard:
+
+- No more small caps labels above every heading. Section names now run into the headline.
+- No decorative 01 / 02 / 03 numbering, no translucent blurred nav, no fade-in on every section. One motion moment: a highlighter swipe across the hero punch line.
+- Every piece of text is 12.5px or larger, and all muted text passes contrast on every colored section.
+- Theme touches most generated sites skip: text selection, focus rings, link underlines, scrollbars.
+- A much longer "do not use" list (glows, glass cards, gradient text, pill chips, big-number tiles, grid backgrounds, and more), a craft floor, and extra care for dark palettes.
+- The post-generation check now runs the Impeccable detector and takes real screenshots, instead of a text search.
+
+The template's detector findings went from 29 to 1 (the paper-toned background, which is a deliberate palette choice).
 
 ## What's inside the plugin
 
