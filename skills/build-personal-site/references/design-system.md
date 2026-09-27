@@ -11,27 +11,27 @@ profile or a print résumé with personality, **not** a SaaS marketing landing p
 
 ## Typography
 
-Three typefaces, each with one job. All from Google Fonts.
+Three typefaces, each with one job. All from Google Fonts. The backbone ships pairing A from
+`palettes.md`; swap in the user's pick.
 
-- **Display, `Bricolage Grotesque`** (contemporary display grotesque). Headlines, section titles,
-  subheads, pull quotes, large numerals. Weights 400/500/600/700. No true italic, so emphasis uses
-  the Wasabi highlight marker or weight/color, never a synthesized slant.
-- **Body & UI, `Hanken Grotesk`** (humanist grotesque). Paragraphs, lists, nav, buttons.
-  Weights 400/500/600/700. This replaces Inter on purpose.
-- **Data, `IBM Plex Mono`** (monospace). Dates, numbers, filenames, and short one-to-three-word
+- **Display, `Funnel Display`** (contemporary grotesk with soft, odd corners). Headlines, section
+  titles, subheads, pull quotes, large numerals. Weights 400/500/600/700. Emphasis uses the pop-color
+  highlight mark or weight/color, never an italic accent word.
+- **Body & UI, `Funnel Sans`**. Paragraphs, lists, nav, buttons. Weights 400/500/600/700.
+- **Data, `Fragment Mono`** (monospace). Dates, numbers, filenames, and short one-to-three-word
   group labels (skill groups, fact labels). Group labels may be uppercase with ~0.08em tracking;
   dates stay in their natural case with tabular numerals. Mono is for data, not a costume: never
   for kickers above headings, sentences, tags, relationships, or footer lines.
 
 Type scale (clamped for responsive):
 
-- H1 / hero: Bricolage Grotesque, clamp(2.4rem, 5.5vw, 4rem), line-height 1.05, letter-spacing -0.02em
-- Section title: Bricolage Grotesque, clamp(1.8rem, 3.6vw, 2.6rem), line-height 1.1
-- Subhead: Bricolage Grotesque, 1.25 to 1.45rem
-- Pull quote: Bricolage Grotesque, clamp(1.25rem, 2.4vw, 1.9rem), upright
-- Body: Hanken Grotesk, 1.05rem, line-height 1.62
-- Meta (tags, relationships, captions, footer): Hanken Grotesk, 0.875rem, sentence case
-- Mono group label: IBM Plex Mono, 0.78rem (12.5px), uppercase, tracking 0.08em, one to three words only
+- H1 / hero: display, clamp(2.4rem, 4.6vw, 3.4rem), line-height 1.1, letter-spacing -0.022em
+- Section title: display, clamp(1.8rem, 3.6vw, 2.6rem), line-height 1.12
+- Subhead: display, 1.25 to 1.45rem
+- Pull quote: display, 1.2rem, line-height 1.46, upright
+- Body: body face, 1.05rem, line-height 1.62
+- Meta (tags, relationships, captions, footer): body face, 0.875rem, sentence case
+- Mono group label: Fragment Mono, 0.78rem (12.5px), uppercase, tracking 0.08em, one to three words only
 
 Weight discipline: reserve 700 for rare emphasis. Headlines live at 500–600, not bold.
 
@@ -39,40 +39,39 @@ Weight discipline: reserve 700 for rare emphasis. Headlines live at 500–600, n
 
 ## Color Palette
 
-Wasabi-tinted paper with olive ink, a persimmon action accent, and a chartreuse (Wasabi) highlight pop. No blue/indigo anywhere. CSS variables are the contract.
+Palette 01, Fog and oxblood: a cool gray ground with near-black ink, an oxblood action color, and a
+marigold highlight. No cream, no clay, no blue or indigo action color. CSS variables are the contract.
 
 ```
---color-bg:          #FAFAEC   /* wasabi-tinted paper, main background */
---color-bg-sunk:     #F1F0DA   /* alternating / sunken sections */
+--color-bg:          #E7EBED   /* fog, main background */
+--color-bg-sunk:     #DDE3E6   /* sunken surfaces, the empty photo */
 --color-surface:     #FFFFFF   /* figures, photo frame, the rare card */
---color-ink:         #1F2110   /* olive near-black, primary text */
---color-ink-muted:   #65684C   /* secondary text, deks */
---color-ink-faint:   #686A4F   /* captions, metadata (darkened to pass 4.5:1 on every wash) */
---color-primary:     #C0481B   /* persimmon (2026): accents, fills, big moments */
---color-primary-deep:#9E3C16   /* hover + inline link text (passes contrast on paper) */
---color-secondary:   #4F6B4A   /* jade/sage (2026), used sparingly */
---color-wasabi:      #E9F056   /* Wasabi (2026): highlight marker / joy pop, never text */
---color-plum:        #351E28   /* Plum Noir (2026): deep accent, footer band */
---color-line:        #E6E6CE   /* hairline borders, the main structural device */
---color-line-strong: #D4D4B4   /* heavier rule when needed */
---color-on-primary:  #FFF8F1   /* near-white text on persimmon/plum fills (4.7:1 on persimmon) */
+--color-ink:         #161A1D   /* primary text */
+--color-ink-muted:   #475057   /* secondary text, deks */
+--color-ink-faint:   #4E575D   /* captions, metadata (4.5:1 or better on every wash) */
+--color-primary:     #8A1C2B   /* oxblood: buttons, the office-hours band */
+--color-primary-deep:#6E1522   /* hover + inline link text */
+--color-label:       #FFFFFF   /* text on primary fills and the primary band */
+--color-on-primary:  #FFF1F1   /* softer text on primary */
+--color-secondary:   #46606A   /* slate, used sparingly */
+--color-pop:         #F2C14E   /* marigold: highlight marker and selection only, never text */
+--color-deep:        #1A2226   /* footer band */
+--color-line:        #CCD3D7   /* hairline borders, the main structural device */
+--color-line-strong: #B3BCC1   /* heavier rule when needed */
 ```
 
 Rules of use:
 
-- Inline text links: `--color-primary-deep`, underlined. (Bright `--color-primary` is too
-  light for small body text on paper, only use it at large sizes or for fills.)
-- Buttons / full-bleed bands: `--color-primary` fill with `#FFFFFF`/`--color-on-primary` bold
-  text. White-on-persimmon clears 4.5:1 at button weight.
-- Jade/sage and Wasabi are seasonings, not main colors. Jade for the rare small accent. Wasabi
-  (#E9F056) is a highlight marker only (the hero "and I'm in." mark, the empty-photo tint), never
-  text and never a large fill. Persimmon is the action color; the deep bands are persimmon (Office
-  Hours) and plum (footer).
+- Inline text links: `--color-primary-deep`, underlined.
+- Buttons / full-bleed bands: `--color-primary` fill with `--color-label` text at 600 weight.
+- Secondary and pop are seasonings, not main colors. Pop is a highlight marker only (the hero
+  punch-line mark, text selection), never text and never a large fill.
 - Do not introduce new hues. If something needs emphasis, use weight, size, or a hairline.
-- The paper background is a deliberate pick, not a reflex. The Impeccable check flags warm
-  off-white pages (`cream-palette`) because generated sites default to them. Here the user chose a
-  paper palette on purpose, so that one flag is expected. Any other background should come from the
-  user's palette, not a safe beige.
+- The ground comes from the user's palette, never from a safe default. The Impeccable detector flags
+  warm off-white pages (`cream-palette`) because generated sites default to them; none of the
+  palettes in `palettes.md` trips it. If the user explicitly asked for a cream ground, that choice
+  is recorded in `PRODUCT.md` and is the only accepted flag.
+- On saturated grounds, muted text is a dark shade of the ground's hue, never gray.
 
 ---
 
@@ -93,20 +92,20 @@ Rules of use:
 
 ## Component Conventions
 
-- **Buttons:** `6px` radius, no gradient. Primary = persimmon fill, white bold label. Ghost =
+- **Buttons:** `6px` radius, no gradient. Primary = primary fill, `--color-label` bold label. Ghost =
   transparent, 1px `--color-line` border, ink label; border darkens to ink on hover. Optional
-  trailing `→` that nudges right on hover. Labels in Hanken Grotesk 600, not uppercase.
-- **Nav:** sticky, hairline bottom border, solid paper background (no blur, no translucency). Text links (Hanken 500, ink-muted,
-  active = ink with a short persimmon underline). One primary button for Office Hours.
+  trailing `→` that nudges right on hover. Labels in the body face at 600, not uppercase.
+- **Nav:** sticky, hairline bottom border, solid background (no blur, no translucency). Text links (body 500, ink-muted,
+  active = ink with a short underline in that section's zone color). One primary button for Office Hours.
 - **Section header:** no label above the heading. The section's name runs in at the start of the
-  Bricolage headline in the chapter accent color ("Experience. Twenty years of..."), followed by an
+  display headline in the chapter accent color ("Experience. Twenty years of..."), followed by an
   optional one-line intro. The heading carries its own weight.
 - **Editorial list (approach / projects / experience):** hairline-separated rows. Left rail holds
-  real data (dates, one sourced stat) or the row's own title. No decorative 01 / 02 / 03 numbering. Serif subhead + grotesque body. Disclosures use
+  real data (dates, one sourced stat) or the row's own title. No decorative 01 / 02 / 03 numbering. Display subhead + body text. Disclosures use
   a plain `+ / –` text toggle, never a chevron-in-a-circle.
-- **Pull quotes (recommendations):** large Bricolage quotes, upright, with a hanging quote mark in
-  the chapter accent (no colored side stripe); attribution in name (Hanken 600) + relationship
-  (Hanken, meta size, sentence case).
+- **Pull quotes (recommendations):** large display-face quotes, upright, with a hanging quote mark in
+  the chapter accent (no colored side stripe); attribution in name (body 600) + relationship
+  (body, meta size, sentence case).
   Stacked or two-column. **No carousel.**
 - **Tags / skills:** plain mono text, comma- or middot-separated, grouped under mono category
   labels. **No pill chips.**
@@ -121,12 +120,13 @@ Rules of use:
 - **Asymmetric, left-aligned.** No centered hero. The hero is a two-column split: copy left,
   portrait figure right.
 - Open every section with the run-in headline (accent section name + statement). Never a kicker label above it.
-- **Color-zoned chapters.** Each content section gets a soft palette wash and a `--zone` accent
-  its run-in section name + big marks adopt: How I Work / Off the Clock = wasabi (#F5F6D8, accent #766611);
-  Experience = sage (#ECEFE2 / #3F5A3A); Projects = cool blue (#EAF1F6 / #2C6580); Skills = peach
-  (#FBEEE5 / #9E3C16); Recommendations = mauve (#F1E9EC / #6E3A4E). Buttons and links stay persimmon.
-- Office Hours is a **full-bleed persimmon band** (the saturated peak); the footer is a deep Plum
-  Noir band. Section washes are soft tints; the two bands run full saturation.
+- **Color-zoned chapters.** Each content section gets a soft wash near the ground and a `--zone`
+  accent its run-in section name + big marks adopt: How I Work / Off the Clock = `z-a` (#DCE3E7,
+  accent #8A1C2B); Experience = `z-b` (#E0E8E3 / #2F5249); Projects = `z-c` (#E8E3EC / #5B3A63);
+  Skills = `z-d` (#EFE2E2 / #7A1826); Recommendations = `z-e` (#E6E9DE / #4D5A22). Buttons and links
+  stay primary.
+- Office Hours is a **full-bleed primary band** (the saturated peak); the footer is a `--color-deep`
+  band. Section washes are soft tints; the two bands run full saturation.
 - Mobile: single column, photo below hero copy, hamburger nav.
 
 ---
@@ -137,9 +137,30 @@ These are the AI-slop tells. They are banned on this site. The list follows the
 [Impeccable](https://impeccable.style) anti-pattern catalog (Paul Bakaus), which is the standard this
 skill checks against. Each line: the pattern, why it reads as generated, and what to do instead.
 
+**The 2026 house looks** (named in Anthropic's frontend-design skill update and Paul Bakaus's
+Impeccable, September 2026). AI-built pages now cluster into a few recognizable looks. Banning one
+font or one color only moves the model to its nearest neighbor, so the whole cluster is banned, and
+the skill's seeded shortlist pushes each site somewhere else.
+
+- **"Claude beige."** Cream, paper, oatmeal, or parchment ground; terracotta, clay, rust, or
+  persimmon accent; a serif headline (often Instrument Serif) with one italic word; eyebrow labels.
+  Any two of these together read as generated. Use a ground from `palettes.md`.
+- **Dark plus acid.** Near-black with one neon accent (lime, cyan, electric green) and glowing
+  edges. Dark palettes here use flat, warm-or-soft accents and no glow.
+- **Broadsheet cosplay.** Newspaper hairlines on everything, an italic display serif, small tracked
+  mono labels, fake issue numbers and datelines. Hairlines are fine; the costume is not.
+- **The SaaS card kit.** Rows of equal rounded cards, each with an icon, a heading, and two lines.
+  Use hairline rows with real content.
+- **Template chrome.** Fake browser windows, fake terminal windows, code-editor frames, and device
+  mockups around content that is not software.
+
 **Type and labels**
 
-- Inter, Geist, Roboto, Space Grotesk, or a system sans as the display face. Everyone's default. Use the chosen display font.
+- Instrument Serif, Instrument Sans, Inter, Geist, Fraunces, Space Grotesk, Plus Jakarta Sans, DM
+  Sans, Playfair Display, Syne, Outfit, IBM Plex, Roboto, or a system sans as the display face (full
+  list in `palettes.md`). The faces models reach for first. Use the chosen pairing.
+- Italic accent words: one word in a headline set in italic (serif or not) for "voice". The most
+  recognizable 2026 headline tell. Use weight, size, or the highlighter mark.
 - Tiny tracked-caps label above a heading ("kicker" / eyebrow), on any section. The single most common AI page tell. Run the section name into the headline, or delete it.
 - Eyebrow chip above the hero headline ("Product Designer · Brooklyn" in caps or in a pill). Default SaaS hero. Put role and place in the sub line or the nav.
 - Numbered section labels ("01 / Spot the friction"). Fake editorial scaffolding when the order carries no meaning. Let the title lead; number only real sequences.
@@ -168,7 +189,7 @@ skill checks against. Each line: the pattern, why it reads as generated, and wha
 - Testimonial carousels (dots/arrows/auto-rotate).
 - Centered hero with a gradient background.
 - Pulsing "live" dots, blinking cursors, marquees. Fake liveness.
-- Stark `#FFFFFF` page background. (Surface white is fine for figures.)
+- Stark `#FFFFFF` page background, and warm cream or beige page backgrounds. (Surface white is fine for figures.)
 - Bold (700+) used everywhere; reserve heavy weight for rare emphasis.
 
 **Motion**
@@ -179,7 +200,8 @@ skill checks against. Each line: the pattern, why it reads as generated, and wha
 
 **Color**
 
-- Blue or indigo accents on the default palette; purple gradients or cyan-on-dark in any palette.
+- Blue or indigo as the action color in any palette; purple gradients or cyan-on-dark anywhere.
+- Terracotta, clay, or persimmon on a cream ground (the Claude-beige pairing).
 - Muted or "faint" text that fails 4.5:1 on the wash it sits on.
 
 ---
@@ -190,17 +212,17 @@ The minimum every generated page must clear before hand-off. It follows Impeccab
 
 - **Contrast.** Body, meta, and placeholder text at least 4.5:1 against the actual surface it
   sits on (check each chapter wash, not just the page background). Large headings at least 3:1.
-  Ink on background at least 7:1. On colored bands (persimmon, plum), secondary text is a tint of
-  white, never gray.
+  Ink on background at least 7:1. On colored bands (primary, deep), secondary text is a tint of
+  the label color, never gray.
 - **Type floors.** Body 1.05rem. Meta 0.875rem. Mono group labels 0.78rem. Nothing smaller, on any
   breakpoint. Body measure 60 to 70 characters. Tracking no tighter than -0.03em on display type.
 - **Spacing rhythm.** 4px base. Tight inside a group (8 to 16px), generous between groups (32 to
   56px), and more space above a heading than below it. Sections breathe at about 96px desktop,
   64px phone.
-- **One motion moment.** The template's is the Wasabi highlighter swiping across the hero punch
+- **One motion moment.** The template's is the pop-color highlighter swiping across the hero punch
   line on load. Everything else is visible at first paint. Hover nudges on arrows are fine.
   Always honor `prefers-reduced-motion`.
-- **Browser surfaces.** Theme the parts nobody draws: `::selection` (Wasabi behind ink),
+- **Browser surfaces.** Theme the parts nobody draws: `::selection` (pop color behind ink),
   `:focus-visible` rings (primary-deep, 2px, offset 3px; on-primary on colored bands), link
   underline offset, `caret-color`, `accent-color`, `scrollbar-color`, and tabular numerals on
   dates and stats.
@@ -210,19 +232,32 @@ The minimum every generated page must clear before hand-off. It follows Impeccab
 
 ## Palette on dark
 
-Palettes 04 (Plum noir) and 10 (Ink editorial) are dark. Dark pages are where generated sites go
-wrong fastest, so:
+Palettes 06 (Graphite and rose) and 07 (Petrol and ochre) are dark. Dark pages are where generated
+sites go wrong fastest, so:
 
-- No glows. A bright persimmon on a dark ground tempts colored shadows and radial "spotlight"
-  washes. Both are banned. Let the color sit flat.
+- No glows. A bright accent on a dark ground tempts colored shadows and radial "spotlight"
+  washes. Both are banned. Let the color sit flat. No neon or acid accents either.
 - No glass. Translucent blurred panels over a dark wash drop text contrast below AA.
 - Compensate type for light-on-dark: a touch more line height (about +0.05), slightly lighter
   weight on large display type, and never pure white body text on near-black (use the palette's
-  paper tone, for example `#F2ECDF`).
+  ink, for example `#ECEAE4`).
 - Re-derive every token: ink, muted, faint, line, and each chapter wash must be re-tuned as dark
   tints, and every text/surface pair re-checked for 4.5:1. Light-mode washes pasted onto a dark
   page are the most common failure.
 - Hairlines on dark are a light tint at low contrast (about 12 to 16 percent), not gray.
+- Button labels and the office-hours band text use `--color-label`, which is dark on these palettes.
+  The highlighter mark sets its words in the background color so they stay readable on the pop.
+
+---
+
+## Brand page, not product UI
+
+This system is for a personal site: a brand page whose job is to make someone remember a person.
+It earns a display face with a point of view, a committed palette, and one authored motion moment.
+If the user later adds something that is really a tool (a calculator, a booking flow, a dashboard
+of their projects), those parts follow product rules instead: familiar controls, system or workhorse
+UI type is fine, restrained color, no decorative motion. Do not dress a form up as a hero, and do
+not apply the product rules to the hero.
 
 ---
 
@@ -231,9 +266,10 @@ wrong fastest, so:
 - **Adjectives:** warm, editorial, considered, confident, human, analytical-but-approachable,
   optimistic, unfussy.
 - **Voice:** first person, the user's. Set during the voice check in the interview; carry their tone through every section.
-- **References:** Stripe Press typography, a well-set print résumé, long-form personal essays,
-  a magazine profile. Think editorial, not dashboard, even though the subject builds dashboards.
-- **Anti-references:** corporate SaaS landing page, Stripe-checkout-lookalike, dark-mode
+- **References:** real sites the user picked in Step 4, recorded in `PRODUCT.md`. The backbone's
+  own: a well-set print résumé, museum and exhibition sites, long-form personal essays. Real
+  references beat adjectives; when in doubt, look at the reference, not the word.
+- **Anti-references:** the Claude-beige page, corporate SaaS landing page, Stripe-checkout-lookalike, dark-mode
   analytics dashboard, "startup modern" template.
 
 ---
@@ -265,3 +301,10 @@ wrong fastest, so:
   tags/relationships/footer out of uppercase mono, swapped the quote side rule for a hanging quote
   mark, and themed selection, focus, caret, and scrollbar. Added the craft floor, the palette-on-dark
   caution, and a grouped do-not-use list.
+- 2026-09-27 (v0.5.0): Left the "Claude beige" cluster. Default palette is now Fog and oxblood
+  (cool gray, oxblood, marigold highlight); display and body moved from Bricolage Grotesque and
+  Hanken Grotesk to Funnel Display and Funnel Sans, data labels from IBM Plex Mono to Fragment Mono.
+  Tokens renamed to palette-neutral names (`--color-pop`, `--color-deep`, `--color-label`, zones
+  `z-a` to `z-e`). Added the 2026 house looks (Claude beige, dark plus acid, broadsheet cosplay, SaaS
+  card kit, template chrome) and italic accent words to the do-not-use list, plus the brand-page vs
+  product-UI split. The accepted `cream-palette` flag is gone: the backbone scans clean.
