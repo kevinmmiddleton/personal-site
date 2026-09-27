@@ -43,7 +43,7 @@ Vibe: grounded, organic, considered. Best for: climate, wellness, nature-adjacen
 
 ## 04 — Plum noir, dark
 
-Dramatic warm dark with a persimmon glow.
+Dramatic warm dark with a bright persimmon accent. Read "Palette on dark" in design-system.md before using it: no glows, no glass.
 
 - Background: `#2A1822` (deep plum)
 - Primary: `#FF6A3D` (bright persimmon)
@@ -109,7 +109,7 @@ Vibe: warm, autumnal, sophisticated. Best for: anyone who wants warmth with a de
 
 ## 10 — Ink editorial, dark
 
-Sophisticated warm dark with persimmon and jade accents.
+Sophisticated warm dark with persimmon and jade accents. Same dark-palette cautions as 04.
 
 - Background: `#1A150F` (warm near-black)
 - Primary: `#FF6A3D` (bright persimmon)
