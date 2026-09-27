@@ -12,30 +12,36 @@ you are never doing more than one thing at a time.
 
 ## What you've got
 
-Two files in this folder:
+The files in this folder:
 
 - **index.html** is the entire website. One file. Open it in any browser to see it.
-- **design-system.md** is the rulebook for how the site looks (fonts, colors, spacing, the "never
-  do this" list). Keep it next to index.html. When you start a session, tell Claude to read it
-  first, and your changes will stay on-brand instead of drifting into generic AI-website land.
+- **DESIGN.md** is the rulebook for how the site looks (fonts, colors, spacing, the "never do this"
+  list).
+- **PRODUCT.md** is what the site is for, who it is for, and how you sound.
+- **critique-log.md** is Claude's notebook: each design check it ran, what it fixed, and anything
+  you pushed back on, so it never re-suggests something you already said no to.
 
-Quick note on the colors: your palette is one of ten 2026 directions (Pinterest's 2026 forecast,
-San Marco's color trends, etc.) that you picked during the interview. It is a starting point. If you
-want it warmer, cooler, calmer, or louder, just tell Claude "change the accent to X" and it will
-update everywhere at once because of that rulebook file.
+Keep all of them next to index.html. When you start a session, tell Claude to read them first, and
+your changes will stay on-brand instead of drifting into generic AI-website land.
+
+Quick note on the colors: your palette came from a shortlist picked just for you during the
+interview, so your site does not start from the same place as everyone else's. It is a starting
+point. If you want it warmer, cooler, calmer, or louder, just tell Claude "change the accent to X"
+and it will update everywhere at once because of that rulebook file.
 
 ---
 
 ## Open this in Claude first
 
-1. Put these files in one folder on your computer (index.html, design-system.md, START-HERE.md).
+1. Put these files in one folder on your computer (index.html, DESIGN.md, PRODUCT.md, critique-log.md, START-HERE.md).
 2. Open the Claude desktop app and turn on Cowork.
 3. Add this folder as your working folder. Claude will ask which folder it can use; point it here.
    That gives Claude permission to read and edit these files.
 4. Paste this as your first message:
 
-> Hey Claude. This folder has my personal website (index.html), a design rulebook
-> (design-system.md), and a setup guide (START-HERE.md). Read START-HERE.md and design-system.md
+> Hey Claude. This folder has my personal website (index.html), a design rulebook (DESIGN.md),
+> notes about me and the site (PRODUCT.md), a log of past design checks (critique-log.md), and a
+> setup guide (START-HERE.md). Read START-HERE.md, PRODUCT.md, DESIGN.md, and critique-log.md
 > first, then help me make this site mine and get it live, one step at a time. Start by having me
 > QA the content against my resume, and ask me for whatever you need from me as we go (my resume, a
 > photo of myself, my scheduling link). Keep everything consistent with the design system and walk
@@ -80,8 +86,8 @@ circle on mobile, a framed portrait on desktop. A warm, real, looking-at-the-cam
 stiff corporate headshot. No photo ready yet? Tell Claude and it leaves a clean placeholder so you
 are not blocked.
 
-**Change the font or anything else if you want.** The headline font is Bricolage Grotesque. Don't
-love it? Say so to Claude and try another. Same for spacing, section order, wording, all of it.
+**Change the font or anything else if you want.** The headline font is the one you picked in the interview
+(it is named in DESIGN.md). Don't love it? Say so to Claude and try another. Same for spacing, section order, wording, all of it.
 
 **Things you can ask Claude to do.** Once the content is roughly right, just talk to it. Some
 examples to copy/paste so you don't have to think about phrasing:
@@ -124,7 +130,7 @@ it can host the site for you for free (that is the next step). That is all it is
    the cleanest free web address.
 3. Check the box **Add a README file**. That is your first file. It can just be one line, like
    "About: my personal site." Done.
-4. Once the repo exists, upload `index.html` and `design-system.md` (you can literally drag and
+4. Once the repo exists, upload `index.html`, `DESIGN.md`, `PRODUCT.md`, and `critique-log.md` (you can literally drag and
    drop them into the repo page, or let Claude do it after Step 4).
 5. Go to the repo's **Settings → Pages**. Under "Source," pick the **main** branch and the root
    folder, then Save.
@@ -250,8 +256,9 @@ While you are at it, ask Claude to make you a **favicon** too (the tiny icon in 
 
 ## Working with Claude on this, going forward
 
-- Keep **design-system.md** in the folder and tell Claude to read it at the start of each session.
-  It is what keeps your edits looking intentional instead of generic.
+- Keep **DESIGN.md**, **PRODUCT.md**, and **critique-log.md** in the folder and tell Claude to read
+  them at the start of each session. They are what keep your edits looking intentional instead of
+  generic.
 - Change things locally, preview, push when ready.
 - You can always undo. GitHub keeps a full history, so any change can be rolled back, and you can
   restart the whole thing whenever you feel like it.
