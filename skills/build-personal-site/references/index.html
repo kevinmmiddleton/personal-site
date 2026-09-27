@@ -24,7 +24,8 @@
     --color-deep:#1A2226;
     --color-line:#CCD3D7;
     --color-line-strong:#B3BCC1;
-    --color-on-primary:#FFF1F1;
+    --color-label:#FFFFFF;       /* text on primary fills and the primary band */
+    --color-on-primary:#FFF1F1;  /* softer text on primary; the invert button's hover */
 
     --display:'Funnel Display', 'Funnel Sans', sans-serif;
     --body:'Funnel Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -96,11 +97,11 @@
   }
   .btn .arr{transition:transform .18s var(--ease-out)}
   .btn:hover .arr{transform:translateX(3px)}
-  .btn-primary{background:var(--color-primary);color:#fff}
+  .btn-primary{background:var(--color-primary);color:var(--color-label)}
   .btn-primary:hover{background:var(--color-primary-deep)}
   .btn-ghost{background:transparent;color:var(--color-ink);border-color:var(--color-line-strong)}
   .btn-ghost:hover{border-color:var(--color-ink)}
-  .btn-invert{background:#fff;color:var(--color-primary-deep)}
+  .btn-invert{background:var(--color-label);color:var(--color-primary-deep)}
   .btn-invert:hover{background:var(--color-on-primary)}
 
   /* ---------- Nav (solid ground, no glass) ---------- */
@@ -121,9 +122,9 @@
   .nav-links a[href="#projects"].active::after{background:#5B3A63}
   .nav-links a[href="#skills"].active::after{background:#7A1826}
   .nav-links a[href="#recs"].active::after{background:#4D5A22}
-  .nav-links a.nav-cta{background:var(--color-primary);color:#fff;font-weight:600;padding:9px 18px;border-radius:6px}
-  .nav-links a.nav-cta:hover{background:var(--color-primary-deep);color:#fff}
-  .nav-links a.nav-cta.active{color:#fff}
+  .nav-links a.nav-cta{background:var(--color-primary);color:var(--color-label);font-weight:600;padding:9px 18px;border-radius:6px}
+  .nav-links a.nav-cta:hover{background:var(--color-primary-deep);color:var(--color-label)}
+  .nav-links a.nav-cta.active{color:var(--color-label)}
   .nav-links a.nav-cta.active::after{display:none}
   .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:10px;margin-right:-10px}
   .nav-toggle span{display:block;width:24px;height:2px;background:var(--color-ink);margin:5px 0;border-radius:1px}
@@ -230,10 +231,10 @@
   /* ---------- Office hours full-bleed band ---------- */
   .oh{background:var(--color-primary);color:var(--color-on-primary)}
   .oh .wrap{padding-top:88px;padding-bottom:88px}
-  .oh h2{font-family:var(--display);font-weight:500;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.1;letter-spacing:-0.015em;color:#fff;max-width:18ch}
-  .oh p{margin-top:18px;font-size:1.1rem;max-width:56ch;color:#fff}
+  .oh h2{font-family:var(--display);font-weight:500;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.1;letter-spacing:-0.015em;color:var(--color-label);max-width:18ch}
+  .oh p{margin-top:18px;font-size:1.1rem;max-width:56ch;color:var(--color-label)}
   .oh .who{margin-top:22px;font-size:1rem;color:var(--color-on-primary)}
-  .oh .who b{font-weight:600;color:#fff}
+  .oh .who b{font-weight:600;color:var(--color-label)}
   .oh .oh-actions{margin-top:34px}
   .oh-grid{display:grid;grid-template-columns:1.25fr 0.8fr;gap:48px;align-items:center}
   .oh-copy{grid-column:1;grid-row:1}
