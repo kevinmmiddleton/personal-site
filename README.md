@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/brand/banners/github-social-1280x640.png" alt="Personal Site. A website from an interview." width="640">
+  <img src="assets/brand/banners/github-social-1280x640.png" alt="Personal Site. Get interviewed by AI and build your website." width="640">
 </p>
 
 # personal-site
